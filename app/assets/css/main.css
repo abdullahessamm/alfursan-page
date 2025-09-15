@@ -1,0 +1,29 @@
+@import url('primeflex/primeflex.css');
+@import url('animate.css');
+@import url('simplebar/dist/simplebar.min.css');
+@import url('~/assets/css/fonts.css');
+@import url('~/assets/css/animation.css');
+
+:root {
+  --primary-color: #2e4881;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+.text-white {
+  color: #f4f4f4 !important;
+}
+
+.bg-white {
+  background-color: #f4f4f4 !important;
+}
