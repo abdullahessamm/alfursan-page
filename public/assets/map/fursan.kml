@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
-	<name>الفرسان1.kml</name>
+	<name>عوالى الفرسان</name>
 	<StyleMap id="PolyStyle00140">
 		<Pair>
 			<key>normal</key>
@@ -37,7 +37,7 @@
 		</PolyStyle>
 	</Style>
 	<Placemark id="ID_00000">
-		<name>الفرسان1</name>
+		<name>عوالى الفرسان</name>
 		<visibility>0</visibility>
 		<Snippet maxLines="0"></Snippet>
 		<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">

@@ -8,7 +8,7 @@
           animation:
             'slideInRight 0.5s linear forwards, fadeIn 0.5s linear forwards',
         }"
-      />
+      >
       <div
         class="text-white text-center"
         :style="{
@@ -17,29 +17,40 @@
         }"
       >
         <span class="font-family-cairo text-2xl lg:text-5xl">الفرسان</span>
-        <br />
+        <br>
         <span class="font-family-montserrat text-sm lg:text-xl">AL-FURSAN</span>
-        <br />
+        <br>
         <span class="font-family-montserrat text-sm lg:text-xl">BY NHC</span>
       </div>
     </header>
     <div
-      class="flex-grow-1 flex flex-column gap-8 justify-content-center align-items-center text-white font-family-cairo"
+      class="flex-grow-1 flex flex-column gap-5 justify-content-center align-items-center text-white font-family-cairo"
     >
-      <!-- title & paragraph -->
+      <!-- title, paragraph, prices buttons -->
       <div class="text-center px-3">
-        <h1 class="text-3xl lg:text-5xl animate__animated animate__fadeInUp">إطلالة مميزة</h1>
+        <h1 class="text-3xl lg:text-5xl animate__animated animate__fadeInUp">
+          بأسعار تبدأ من
+          <span
+            :style="{
+              backgroundColor: 'var(--primary-color)',
+              padding: '0 1rem',
+              borderRadius: '1rem',
+              textWrap: 'nowrap'
+            }"
+            >415,173 ر.س</span
+          >
+        </h1>
         <p
-          class="text-center text-lg lg:text-xl animate__animated animate__fadeIn animate__delay-1s"
+          class="text-center text-md lg:text-xl animate__animated animate__fadeIn animate__delay-1s"
           :style="{
-            maxWidth: '60rem',
+            maxWidth: '70rem',
           }"
         >
           تخيّل كل يوم يبدأ بإطلالة على مجتمع متكامل مصمم ليلبّي كل احتياجاتك.
           من العمارات الحديثة البالغ عددها 23 عمارة، إلى المساحات الخضراء
           والمرافق المتنوعة التي تضمن لك الراحة والرفاهية. يتمتع المشروع بموقع
           استراتيجي يسهّل وصولك إلى الجامعات، المراكز التجارية، والطرق الرئيسية،
-          لتعيش تجربة سكنية متكاملة تمنحك راحة البال وحياة مليئة بالفرص.
+          لتعيش تجربة سكنية متكاملة تمنحك راحة البال وحياة مليئة بالفرص. <br>
         </p>
       </div>
       <!-- button -->

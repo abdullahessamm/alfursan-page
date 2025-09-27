@@ -32,7 +32,7 @@ onMounted(() => {
   state.videoLoading = true;
   setTimeout(() => {
     loadVideo(window.innerWidth < 768);
-  }, 6000);
+  }, 1000);
 }); // fetch video on mount
 
 // video element & state
@@ -93,17 +93,21 @@ watch(vidState, (val) => {
           <section id="about" class="sc-about-section">
             <sections-about-section />
           </section>
+          <!-- models and pricing section -->
+          <section id="models" class="sc-models-section">
+            <sections-models-section />
+          </section>
           <!-- project features section -->
           <section id="features" class="sc-project-features-section">
             <sections-project-features />
           </section>
-          <!-- business dev section -->
-          <section class="sc-business-dev-section">
-            <sections-business-development-section />
-          </section>
           <!-- master plan section -->
           <section class="sc-master-plan-section">
             <sections-master-plan-section />
+          </section>
+          <!-- business dev section -->
+          <section class="sc-business-dev-section">
+            <sections-business-development-section />
           </section>
           <!-- why choose us section -->
           <section class="sc-why-choose-us-section">
@@ -124,25 +128,12 @@ watch(vidState, (val) => {
     >
       <img
         src="/assets/imgs/araco-logo-white.png"
-        class="w-9rem lg:w-11rem animate__animated animate__fadeInUp animate__delay-4s"
+        class="w-9rem lg:w-11rem animate__animated animate__fadeInUp"
         alt="ARACO LOGO"
       >
       <loaders-app-loader
-        class="animate__animated animate__fadeIn animate__delay-5s"
+        class="animate__animated animate__fadeIn animate__delay-1s"
       />
-      <div class="absolute flex gap-3 align-items-center animate__animated animate__fadeOut animate__delay-3s" dir="ltr">
-        <div
-          class="sc-img-container flex justify-content-center align-items-center w-5rem h-5rem bg-white overflow-hidden"
-          style="border-radius: 50%; animation: fadeInRight 1000ms ease-out forwards;"
-        >
-          <img
-            src="/assets/imgs/swift-care.png"
-            class="w-3rem"
-            alt="swift care logo"
-          >
-        </div>
-        <span class="text-white animate__animated animate__fadeIn animate__delay-1s">POWERED BY <br> SWIFT CARE</span>
-      </div>
     </div>
   </div>
 </template>

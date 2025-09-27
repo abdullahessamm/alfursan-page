@@ -2,8 +2,8 @@
 const { elementRef: projectDefinition } = useAnimateOnScroll('sc_animated__fadeInLeft', false, '0.5s', 0, {
   threshold: 1
 })
-const { elementRef: map } = useAnimateOnScroll('sc_animated__fadeInUp', false, '1s', 300, {
-  threshold: 1,
+const { elementRef: map } = useAnimateOnScroll('sc_animated__fadeInUp', false, '1s', 0, {
+  threshold: 0.2,
 })
 const { elementRef: teasterImg } = useAnimateOnScroll('sc_animated__fadeInUp', false, '1s', 300, {
   threshold: 0.5,
@@ -37,7 +37,9 @@ const { elementRef: teasterText } = useAnimateOnScroll('sc_animated__fadeInRight
           </p>
           <!-- location button -->
           <div class="mt-5 hidden md:block mr-5 md:mr-6">
-            <buttons-button-component>فتح الموقع</buttons-button-component>
+              <a href="https://www.google.com/maps/d/edit?mid=1LinIMS1QUpqNFTr3gRd-qvd5kc75OvU&usp=sharing" target="_blank">
+                <buttons-button-component>فتح الموقع</buttons-button-component>
+              </a>
           </div>
         </div>
       </div>

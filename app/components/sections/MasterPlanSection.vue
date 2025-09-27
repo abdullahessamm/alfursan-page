@@ -170,7 +170,7 @@ const buildingsData: BuildingData[] = [
   // 294
   {
     block: 294,
-    building: "D1",
+    building: "R1",
     buildingArea: 672.66,
     greenArea: 130.9,
   },
@@ -251,6 +251,11 @@ const selectedBuildingData = computed(() =>
       b.building.toUpperCase() === selectedPolygons.value[0]?.name.toUpperCase()
   )
 );
+
+// section state
+const state = reactive({
+  showHint: true,
+});
 </script>
 
 <template>
@@ -262,16 +267,32 @@ const selectedBuildingData = computed(() =>
       <!-- title -->
       <div class="flex justify-content-center">
         <TextTitleWithStarComponent theme-color="#f4f4f4">
-          <template #default>الخطة</template>
-          <template #colored-text>الرئيسية</template>
+          <template #default>استكشف</template>
+          <template #colored-text>المساحات</template>
         </TextTitleWithStarComponent>
       </div>
       <!-- svg -->
       <div class="flex justify-content-center mt-4">
-        <div class="w-full border-round-2xl shadow-3 overflow-hidden">
+        <div class="w-full relative border-round-2xl shadow-3 overflow-hidden">
           <SvgMasterPlanComponent
             @update:selected-polygons="selectedPolygons = $event"
           />
+          <!-- hint overlay -->
+          <div
+            v-if="state.showHint"
+            class="absolute top-0 left-0 w-full h-full p-2 flex flex-column gap-4 justify-content-center align-items-center bg-black-alpha-70 text-white"
+          >
+            <div class="text-center">
+              <h4>كيف يعمل هذا؟</h4>
+              <p class="text-sm" style="color: #d4d4d4">
+                يمكنك الضغط على رقم قطعة الأرض لعرض تفاصيل المساحات الخاصة بها،
+                وكذلك مع كل مبنى.
+              </p>
+            </div>
+            <ButtonsOutlineButtonComponent @click="state.showHint = false"
+              >ابدأ الان !</ButtonsOutlineButtonComponent
+            >
+          </div>
         </div>
       </div>
       <!-- specifications -->
@@ -285,13 +306,12 @@ const selectedBuildingData = computed(() =>
               :number="selectedBlockData?.lotArea"
             >
               <template #number>
-                <NumberIncrementComponent :target="selectedBlockData?.lotArea ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBlockData?.lotArea ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
-            <CardsMasterPlanCardComponent
-              v-else
-              title="رقم قطعة الأرض"
-            >
+            <CardsMasterPlanCardComponent v-else title="رقم قطعة الأرض">
               <template #number>
                 <NumberIncrementComponent
                   :target="selectedBuildingData?.block ?? 0"
@@ -308,7 +328,9 @@ const selectedBuildingData = computed(() =>
               unit="م²"
             >
               <template #number>
-                <NumberIncrementComponent :target="selectedBlockData?.footPrint ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBlockData?.footPrint ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
             <CardsMasterPlanCardComponent
@@ -326,16 +348,16 @@ const selectedBuildingData = computed(() =>
               unit="%"
             >
               <template #number>
-                <NumberIncrementComponent :target="selectedBlockData?.footPrintPercentage ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBlockData?.footPrintPercentage ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
-            <CardsMasterPlanCardComponent
-              v-else
-              title="مساحة المبنى"
-              unit="م²"
-            >
+            <CardsMasterPlanCardComponent v-else title="مساحة المبنى" unit="م²">
               <template #number>
-                <NumberIncrementComponent :target="selectedBuildingData?.buildingArea ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBuildingData?.buildingArea ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
           </div>
@@ -348,7 +370,9 @@ const selectedBuildingData = computed(() =>
               unit="%"
             >
               <template #number>
-                <NumberIncrementComponent :target="selectedBlockData?.greenAreaPercentage ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBlockData?.greenAreaPercentage ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
             <CardsMasterPlanCardComponent
@@ -357,55 +381,53 @@ const selectedBuildingData = computed(() =>
               unit="م²"
             >
               <template #number>
-                <NumberIncrementComponent :target="selectedBuildingData?.greenArea ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBuildingData?.greenArea ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
           </div>
         </div>
         <div v-if="!isBuildingSelected" class="col-6 md:col-3">
           <div class="p-1">
-            <CardsMasterPlanCardComponent
-              title="نسبة أنترلوك"
-              unit="%"
-            >
+            <CardsMasterPlanCardComponent title="نسبة أنترلوك" unit="%">
               <template #number>
-                <NumberIncrementComponent :target="selectedBlockData?.interlockPercentage ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBlockData?.interlockPercentage ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
           </div>
         </div>
         <div v-if="!isBuildingSelected" class="col-6 md:col-3">
           <div class="p-1">
-            <CardsMasterPlanCardComponent
-              title="مساحة ممرات المشاة"
-              unit="م²"
-            >
+            <CardsMasterPlanCardComponent title="مساحة ممرات المشاة" unit="م²">
               <template #number>
-                <NumberIncrementComponent :target="selectedBlockData?.insideRoad ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBlockData?.insideRoad ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
           </div>
         </div>
         <div v-if="!isBuildingSelected" class="col-6 md:col-3">
           <div class="p-1">
-            <CardsMasterPlanCardComponent
-              title="نسبة ممرات المشاة"
-              unit="%"
-            >
+            <CardsMasterPlanCardComponent title="نسبة ممرات المشاة" unit="%">
               <template #number>
-                <NumberIncrementComponent :target="selectedBlockData?.insideRoadPercentage ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBlockData?.insideRoadPercentage ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
           </div>
         </div>
         <div v-if="!isBuildingSelected" class="col-6 md:col-3">
           <div class="p-1">
-            <CardsMasterPlanCardComponent
-              title="مواقف السيارات"
-              unit="عدد"
-            >
+            <CardsMasterPlanCardComponent title="مواقف السيارات">
               <template #number>
-                <NumberIncrementComponent :target="selectedBlockData?.noOfParkings ?? 0" />
+                <NumberIncrementComponent
+                  :target="selectedBlockData?.noOfParkings ?? 0"
+                />
               </template>
             </CardsMasterPlanCardComponent>
           </div>

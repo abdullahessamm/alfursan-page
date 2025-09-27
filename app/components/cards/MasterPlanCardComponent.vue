@@ -11,7 +11,7 @@ defineProps<{
     class="sc-master-plan-card flex flex-column py-4 justify-content-center align-items-center border-round-xl"
     style="cursor: default"
   >
-    <h2><slot name="number">{{ number }}</slot> {{ unit }}</h2>
+    <span class="text-2xl font-bold"><slot name="number">{{ number }}</slot> {{ unit }}</span>
     <span class="text-xs">{{ title }}</span>
   </p>
 </template>
