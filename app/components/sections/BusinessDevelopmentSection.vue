@@ -2,7 +2,7 @@
   <nuxt-layout name="section" class="text-white font-family-cairo">
     <div class="progress-section">
       <!-- title -->
-      <text-title-with-star-component theme-color="#f4f4f4">مؤشر الإنجاز</text-title-with-star-component>
+      <text-title-with-star-component theme-color="#f4f4f4">نسبة إنجاز المشروع</text-title-with-star-component>
 
       <div class="charts-container">
         <!-- Total Project Progress Gauge -->

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   modelValue: {
     type: Boolean,
     required: true
@@ -22,9 +22,25 @@ defineProps({
   }
 })
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void
 }>()
+
+function closeOnBackFromBrowser(e: PopStateEvent) {
+  e.preventDefault()
+  emit('update:modelValue', false)
+}
+
+watch(props, () => {
+  if (props.modelValue) {
+    window.addEventListener('popstate', closeOnBackFromBrowser)
+  } else {
+    window.removeEventListener('popstate', closeOnBackFromBrowser)
+  }
+}, {
+  immediate: true
+})
+
 </script>
 
 <template>
