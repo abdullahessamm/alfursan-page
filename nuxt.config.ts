@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@nuxt/icon', 'unplugin-icons/nuxt'],
+  icon: {
+    serverBundle: 'local',
+  },
   $production: {
     routeRules: {
       '/': { prerender: true }
